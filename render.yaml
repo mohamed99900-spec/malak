@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: malak-ai
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: BOT_TOKEN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: BOT_NAME
+        value: ملك
+      - key: AI_ENABLED
+        value: "true"
+      - key: GROUP_COOLDOWN_SECONDS
+        value: "25"
+      - key: USER_COOLDOWN_SECONDS
+        value: "5"
+      - key: MAX_HISTORY_MESSAGES
+        value: "10"
